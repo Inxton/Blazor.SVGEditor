@@ -125,12 +125,12 @@ public sealed class PublishReleaseTask : FrostingTask<BuildContext>
         if (Helpers.CanReleaseInternal())
         {
             var githubToken = context.Environment.GetEnvironmentVariable("GH_TOKEN");
-            var githubClient = new GitHubClient(new ProductHeaderValue("IX"));
+            var githubClient = new GitHubClient(new ProductHeaderValue("INXTON"));
             githubClient.Credentials = new Credentials(githubToken);
 
             var release = githubClient.Repository.Release.Create(
-                "ix-ax",
-                "AXOpen",
+                "inxton",
+                "Blazor.SVGEditor",
                 new NewRelease($"{GitVersionInformation.SemVer}")
                 {
                     Name = $"{GitVersionInformation.SemVer}",
